@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#210c17">
+  <meta name="description" content="رسالة صغيرة لقلب كبير — ١١ نوفمبر">
+  <title>إلى حبيبتي، من قلبي · ١١/١١</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
+  <div class="ambient-hearts" aria-hidden="true">
+    <i style="--left:4%;--size:17px;--time:24s;--delay:-3s;--drift:34px">♡</i>
+    <i style="--left:14%;--size:12px;--time:19s;--delay:-12s;--drift:-24px">✦</i>
+    <i style="--left:88%;--size:20px;--time:26s;--delay:-8s;--drift:-38px">♡</i>
+    <i style="--left:96%;--size:11px;--time:17s;--delay:-2s;--drift:22px">✧</i>
+    <i style="--left:7%;--size:10px;--time:22s;--delay:-17s;--drift:-34px">✧</i>
+    <i style="--left:92%;--size:14px;--time:21s;--delay:-13s;--drift:31px">♡</i>
+    <i style="--left:2%;--size:13px;--time:28s;--delay:-21s;--drift:18px">✦</i>
+  </div>
+  <div class="motion-layer" id="motionLayer" aria-hidden="true"></div>
+  <svg class="theme-ink-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="themeInkRough" x="-12%" y="-12%" width="124%" height="124%" filterUnits="objectBoundingBox" primitiveUnits="objectBoundingBox">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04 0.085" numOctaves="2" seed="7" result="inkNoise"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="inkNoise" scale="0.025" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+      </filter>
+      <mask id="themeInkMask" maskUnits="objectBoundingBox" maskContentUnits="objectBoundingBox" x="0" y="0" width="1" height="1" style="mask-type:luminance">
+        <circle id="themeInkCircle" cx="0.5" cy="0.5" r="0" fill="white" filter="url(#themeInkRough)">
+          <animate id="themeInkGrowth" attributeName="r" from="0" to="2" dur="1.3s" begin="indefinite" fill="freeze"></animate>
+        </circle>
+      </mask>
+    </defs>
+  </svg>
+  <header class="topbar" id="topbar">
+    <a class="wordmark" href="#home" aria-label="العودة إلى أول الصفحة"><span>♡</span><span>حكايتنا الحلوة</span></a>
+    <nav class="nav" aria-label="التنقل في الصفحة">
+      <a href="#words">من قلبي</a>
+      <a href="#reasons">تفاصيلك</a>
+      <a href="#photos">لحظاتنا</a>
+      <a href="#love-notes">رسائل ليكي</a>
+      <a href="#forever">وعدي ليكي</a>
+      <button class="theme-button" id="themeButton" type="button" aria-label="التبديل إلى وضع النهار" aria-pressed="false"><span class="theme-icon" id="themeIcon" aria-hidden="true">☼</span><span id="themeLabel">النهار</span></button>
+      <div class="music-player" id="musicPlayer">
+        <button class="music-skip" id="previousSong" type="button" aria-label="الأغنية السابقة" title="الأغنية السابقة">‹</button>
+        <button class="music-button" id="musicButton" type="button" aria-label="تشغيل الأغنية المحددة">
+          <span class="equalizer" aria-hidden="true"><i></i><i></i><i></i></span><span class="music-label" id="musicLabel">أغنيتنا ١</span>
+        </button>
+        <button class="music-skip" id="nextSong" type="button" aria-label="الأغنية التالية" title="الأغنية التالية">›</button>
+        <button class="playlist-toggle" id="playlistToggle" type="button" aria-label="فتح قائمة الأغاني" aria-expanded="false" aria-controls="playlistPanel">♫</button>
+        <div class="playlist-panel" id="playlistPanel" hidden>
+          <div class="playlist-heading"><b>أغاني حكايتنا</b><span id="playlistCount">٣ أغاني</span></div>
+          <ol class="playlist-items" id="playlistItems"></ol>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero" id="home" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">١١ نوفمبر · يومنا الحلو</div>
+        <h1 id="hero-title">إلى حبيبتي،<em>أجمل حكاية</em></h1>
+        <p>في يوم مميز زيّك، حبيت أسيبلك حتة صغيرة من قلبي… تقريها كل ما تحبي تفتكري إنك عندي الدنيا كلها.</p>
+        <div class="hero-actions">
+          <a class="primary-link" href="#words"><span>↓</span> كمّلي حكايتنا</a>
+          <span class="scroll-note">على مهلك… الرسالة ليكي</span>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="صورة تذكارية تتحول إلى صورتكما عند إضافة الصورة للمجلد">
+        <span class="sparkle" style="top:11%;right:25%">✦</span><span class="sparkle" style="top:67%;right:5%;animation-delay:1s">✧</span><span class="sparkle" style="bottom:13%;left:25%;animation-delay:.5s">✦</span>
+        <span class="orbit-heart one" aria-hidden="true">♡</span><span class="orbit-heart two" aria-hidden="true">♡</span><span class="orbit-heart three" aria-hidden="true">✧</span>
+        <div class="portrait">
+          <div class="portrait-placeholder" aria-hidden="true"></div>
+          <img class="portrait-img" data-optional-image src="assets/photos/our-moment.jpg" alt="لحظة حلوة لينا سوا" onerror="this.style.display='none'">
+          <div class="portrait-caption">ضحكتك بيتي<small>وكل الحلو بيبتدي منك</small></div>
+        </div>
+      </div>
+    </div>
+    <span class="floating-date" aria-hidden="true">١١ · ١١ · بحبك</span>
+  </section>
+
+  <div class="love-ticker" aria-hidden="true">
+    <div class="love-ticker-track">
+      <span>بحبك</span><i>✦</i><span>بنت قلبي</span><i>♡</i><span>شريكة عمري</span><i>✦</i><span>حبيبتي ودنيتي</span><i>♡</i>
+      <span>بحبك</span><i>✦</i><span>بنت قلبي</span><i>♡</i><span>شريكة عمري</span><i>✦</i><span>حبيبتي ودنيتي</span><i>♡</i>
+    </div>
+  </div>
+
+  <section class="section intro" id="words">
+    <div class="section-inner reveal">
+      <div class="section-label">كلمتين من قلبي</div>
+      <h2>إنتِ مش بس <em>حبيبتي</em>…<br>إنتِ بنت قلبي وحياتي كلها.</h2>
+      <p>وجودك بيخلّي الأيام العادية تبقى أجمل حكاية. صوتك أمان، ضحكتك فرحة، وقربك هو المكان اللي قلبي بيختاره كل مرة.</p>
+      <p class="intro-extra">بحبك في اللحظات الكبيرة وفي تفاصيل يومك الصغيرة. بحب إن أول حد ييجي في بالي لما أفرح هو إنتِ، وإن أبسط حاجة منك بتفضل منوّرة يومي. وجودك مش تفصيلة في حياتي؛ وجودك من أجمل الحاجات اللي حصلتلي.</p>
+      <div class="tiny-heart" aria-hidden="true">♡</div>
+    </div>
+  </section>
+
+  <section class="section facets" id="reasons">
+    <div class="section-inner">
+      <div class="facets-header reveal">
+        <div class="section-label">مش سبب واحد… ألف سبب</div>
+        <h2>تفاصيل فيكي<br><em>وقلبي حافظها.</em></h2>
+        <p>ولو سألتيني بحبك ليه، مش هعرف أختصرها في إجابة واحدة. فيكي حاجات كتير كل واحدة لوحدها حكاية.</p>
+      </div>
+      <div class="facet-grid">
+        <article class="facet-card reveal" data-tilt="true" data-media-type="image" data-media-src="assets/photos/facet-01.jpg" data-media-title="ضحكتك اللي بتنور يومي" role="button" tabindex="0" aria-label="افتحي صورة عن ضحكتك">
+          <div class="facet-top"><span class="facet-icon">☼</span><span class="facet-number">٠١</span></div>
+          <h3>ضحكتك اللي بتنور يومي</h3>
+          <p>حتى لو يومي كان طويل، ابتسامتك لوحدها قادرة تردّلي روحي وتخلّي الدنيا أهون.</p>
+          <span class="facet-action" aria-hidden="true">افتحي صورتك <b>↗</b></span>
+        </article>
+        <article class="facet-card reveal" data-tilt="true" data-media-type="image" data-media-src="assets/photos/facet-02.jpg" data-media-title="قلبك الحنين" role="button" tabindex="0" aria-label="افتحي صورة عن قلبك الحنين">
+          <div class="facet-top"><span class="facet-icon">♡</span><span class="facet-number">٠٢</span></div>
+          <h3>قلبك الحنين</h3>
+          <p>فيكي دفا وطيبة بيخلّوا أي مكان جنبك أمان، وأي يوم معاكي له طعم مختلف.</p>
+          <span class="facet-action" aria-hidden="true">افتحي صورتك <b>↗</b></span>
+        </article>
+        <article class="facet-card reveal" data-tilt="true" data-media-type="video" data-media-src="assets/videos/her-dreams.mp4" data-media-title="قوتك وطموحك" role="button" tabindex="0" aria-label="افتحي الفيديو عن قوتك وطموحك">
+          <div class="facet-top"><span class="facet-icon">✦</span><span class="facet-number">٠٣</span></div>
+          <h3>قوتك وطموحك</h3>
+          <p>بحب إصرارك وأحلامك، وفخور بيكي وبكل خطوة بتاخديها عشان توصلي للي نفسك فيه.</p>
+          <span class="facet-action" aria-hidden="true">شوفي الفيديو <b>▶</b></span>
+        </article>
+        <article class="facet-card reveal" data-tilt="true" data-media-type="audio" data-media-src="assets/audio/her-voice.m4a" data-media-title="صوتك وحكاياتك" role="button" tabindex="0" aria-label="اسمعي تسجيل صوتك">
+          <div class="facet-top"><span class="facet-icon">♫</span><span class="facet-number">٠٤</span></div>
+          <h3>صوتك وحكاياتك</h3>
+          <p>بحب أسمعك تحكيلي عن يومك. حتى أبسط كلام منك بيبقى حاجة قلبي مستنيها.</p>
+          <span class="facet-action" aria-hidden="true">اسمعي صوتك <b>♫</b></span>
+        </article>
+        <article class="facet-card reveal" data-tilt="true" data-media-type="image" data-media-src="assets/photos/facet-05.jpg" data-media-title="تفاصيلك الصغيرة" role="button" tabindex="0" aria-label="افتحي صورة لتفاصيلك الصغيرة">
+          <div class="facet-top"><span class="facet-icon">❀</span><span class="facet-number">٠٥</span></div>
+          <h3>تفاصيلك الصغيرة</h3>
+          <p>حاجات يمكن إنتِ ما تاخديش بالك منها، لكنها عندي غالية وتفضل في بالي طول اليوم.</p>
+          <span class="facet-action" aria-hidden="true">افتحي صورتك <b>↗</b></span>
+        </article>
+        <article class="facet-card reveal" data-tilt="true" data-media-type="image" data-media-src="assets/photos/facet-06.jpg" data-media-title="إنتِ… ببساطة" role="button" tabindex="0" aria-label="افتحي صورتك">
+          <div class="facet-top"><span class="facet-icon">∞</span><span class="facet-number">٠٦</span></div>
+          <h3>إنتِ… ببساطة</h3>
+          <p>بحبك زي ما إنتِ، وأختارك في ضحكتنا وأيامنا العادية، وكل يوم أختارك من جديد.</p>
+          <span class="facet-action" aria-hidden="true">افتحي صورتك <b>↗</b></span>
+        </article>
+      </div>
+      <div class="facets-signature reveal"><span>كل تفصيلة فيكي لها حتة خاصة في قلبي.</span><b aria-hidden="true">♡</b></div>
+    </div>
+  </section>
+
+  <section class="section apology" id="sorry">
+    <div class="section-inner">
+      <div class="apology-mark reveal" aria-hidden="true">♡</div>
+      <div class="apology-copy reveal">
+        <div class="section-label">حاجة مهمّة عايز أقولها</div>
+        <h2>أنا آسف يا روحي.</h2>
+        <p>لو زعلتك في يوم، أو كان مني كلام أو تصرّف ضايقك حتى من غير ما أقصد… حقك عليّا. آخر حاجة أتمناها إني أكون سبب في زعلك.</p>
+        <p>مش هقولك إنّي كامل، بس أوعدك أسمعك بقلب مفتوح، وأفهمك أكتر، وأحاول كل يوم أبقى أحنّ وأقرب ليكي. زعلك يهمني، وراحتك عندي أغلى من أي حاجة.</p>
+        <p>ولو في حاجة لسه مضايقاكي، أنا مستعد أسمعك من غير ما أقاطعك أو أبرر لنفسي. مش عايز أعدّي زعلك بكلمتين؛ عايز أفهم إيه اللي وجعك وأصلّح اللي أقدر عليه، وأثبتلك بتصرفاتي إن كلامي صادق.</p>
+        <p class="promise">إنتِ غالية عليّا قد الدنيا، وحبك مسؤولية بحبها كل يوم.</p>
+        <div class="signature">بحبك، وبتمنى دايمًا أشوف ضحكتك ♥</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section love-letter" id="my-heart">
+    <div class="section-inner reveal">
+      <article class="letter-card">
+        <div class="section-label">رسالة أطول… من قلبي ليكي</div>
+        <h2>لو قلبي يكتبلك،<br>هيفضل يكتب.</h2>
+        <p class="letter-lede">يمكن كلمة «بحبك» صغيرة على كل اللي جوايا… بس هي أصدق بداية.</p>
+        <p>من يوم ما بقيتي جزء من أيامي، بقيت بشوف الحلو في حاجات كتير أكتر. بحب إني أشاركك تفاصيل يومي، وأسمع حكاياتك، وألاقي وسط دوشة الدنيا حدّ قلبي بيرتاح له. ضحكتك بتفرق معايا، ووجودك بيخلّي المستقبل في خيالي أجمل.</p>
+        <p>مش بحبك بس عشان اللحظات الحلوة؛ بحبك إنتِ، بطريقتك وتفاصيلك، وبالنسخة اللي بتكوني عليها كل يوم. ونفسي أفضل الشخص اللي يحترم قلبك، ويطمنك، ويفرح بنجاحك، ويقف جنبك لما الدنيا تتعبك.</p>
+        <p>بصراحة، مش متخيّل حياتي من غيرك، وبتمنى أعيش كل الأيام الجاية وإنتِ شريكتي فيها. وجودك فارق في كل تفصيلة، ونفسي أشاركك حلو الحياة وعاديّها، وأفضل أحبك وأختارك كل يوم.</p>
+        <p>مش بحلم بيوم حلو معاكي وبس؛ نفسي في العمر كله، بيومه العادي قبل المميز، براحته وتعبه. نفسي نواجه الدنيا كفريق واحد، ونفضل سند وضهر لبعض، وربنا يكتب لنا النصيب ويجمعنا في الحلال.</p>
+        <div class="future-note">
+          <b>والخطوة اللي نفسي أخدها معاكي…</b>
+          <p>إحنا مختارين بعض وموافقين نكمّل الطريق سوا، ومستنيين النصيب والميعاد اللي ربنا يكتبه. وأنا نفسي أجي أكلم باباكي رسمي، وأدخل البيت من بابه، وأطلب إيدك. أقوله إنك أغلى حد على قلبي، وإني ناوي أبني معاكي بيت مليان مودة ورحمة، وأكون شريكك وأسندك وأفرح بيكي في كل خطوة. ربنا يجمعنا على خير ويكتب لنا اليوم اللي نبدأ فيه عمرنا سوا.</p>
+        </div>
+        <div class="letter-signature"><span>بحبك النهارده، وبحلم بكره معاكي.</span><span aria-hidden="true">♡</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section gallery" id="photos">
+    <div class="section-inner">
+      <div class="gallery-header reveal">
+        <div><div class="section-label">كل صورة حكاية</div><h2>لحظاتنا الحلوة</h2></div>
+        <p class="gallery-note">هنا مكان ذكرياتنا اللي بحب أرجعلها… وكل صورة فيها حكاية قلبي بيحبها.</p>
+      </div>
+      <div class="photo-grid">
+        <figure class="photo-card reveal" tabindex="0" role="button" aria-label="تكبير الصورة الأولى">
+          <div class="photo-visual"><span class="photo-number">لحظة رقم ٠١</span><img class="photo-image" data-optional-image src="assets/photos/photo-1.jpg" alt="ذكرى جميلة لنا معًا" onload="this.classList.add('loaded')" onerror="this.remove()"></div>
+          <figcaption class="photo-caption"><b>أحلى ضحكة في الدنيا</b><span>تفصيلة صغيرة… بتفرّح قلبي كبير</span></figcaption>
+        </figure>
+        <figure class="photo-card reveal" tabindex="0" role="button" aria-label="تكبير الصورة الثانية">
+          <div class="photo-visual"><span class="photo-number">لحظة رقم ٠٢</span><img class="photo-image" data-optional-image src="assets/photos/photo-2.jpg" alt="ذكرى دافئة لنا معًا" onload="this.classList.add('loaded')" onerror="this.remove()"></div>
+          <figcaption class="photo-caption"><b>وانا جنبك… أنا بخير</b><span>المكان الحلو هو المكان اللي إنتِ فيه</span></figcaption>
+        </figure>
+        <figure class="photo-card reveal" tabindex="0" role="button" aria-label="تكبير الصورة الثالثة">
+          <div class="photo-visual"><span class="photo-number">لحظة رقم ٠٣</span><img class="photo-image" data-optional-image src="assets/photos/photo-3.jpg" alt="لحظة من حكايتنا الجميلة" onload="this.classList.add('loaded')" onerror="this.remove()"></div>
+          <figcaption class="photo-caption"><b>حكايتنا لسه بتبتدي</b><span>وأجمل أيامنا… لسه جاية سوا</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section love-notes" id="love-notes">
+    <div class="section-inner">
+      <div class="notes-header reveal">
+        <div><div class="section-label">حاجات صغيرة حبيت أقولها</div><h2>رسائل ليكي من قلبي</h2></div>
+        <p class="notes-intro">كل رسالة فيها سبب جديد يخليكي تعرفي إن حبك ساكن في تفاصيل يومي… اختاري واحدة أو سيبيلي أختارلك مفاجأة.</p>
+      </div>
+      <div class="note-counter reveal" id="noteCounter" aria-live="polite">رسالة ١ من ١٢</div>
+      <div class="note-stage reveal">
+        <div class="note-glow" aria-hidden="true"></div>
+        <article class="note-card" id="noteCard" aria-live="polite" aria-atomic="true">
+          <div class="note-seal" aria-hidden="true">♡</div>
+          <div class="note-kicker">رسالة خاصة ليكي</div>
+          <p class="note-message" id="noteMessage">يا حبيبتي، كل يوم بيمر وأنا بحبك أكتر، وبحمد ربنا إنك بقيتي أجمل حكاية في أيامي.</p>
+          <div class="note-signoff" id="noteSignoff">بحبك النهارده وكل يوم</div>
+        </article>
+      </div>
+      <div class="note-actions reveal">
+        <button class="note-button" id="previousNote" type="button" disabled>اللي قبلها</button>
+        <button class="note-button primary" id="nextNote" type="button">رسالة كمان <span aria-hidden="true">♡</span></button>
+        <button class="note-button" id="randomNote" type="button">رسالة عشوائية ✦</button>
+      </div>
+      <p class="note-footnote reveal">وكل ما تخلص الرسائل، افتحيها من الأول… <em>كلام حبي ليكي مابيخلصش.</em></p>
+    </div>
+  </section>
+
+  <section class="section closing" id="forever">
+    <div class="section-inner reveal">
+      <div class="closing-heart" aria-hidden="true">♥</div>
+      <div class="section-label">وعدي ليكي</div>
+      <h2>يا حبيبتي،<em>إنتِ بيتي وفرحتي.</em></h2>
+      <p>إنتِ أغلى حدّ في حياتي،<br>ونفسي أشاركك كل يوم جاي… بإيدك في إيدي.</p>
+      <a class="primary-link" href="#home"><span>↑</span> نرجع لأول حكايتنا</a>
+    </div>
+  </section>
+  <footer>اتعملت بحب… مخصوص عشان قلبك ♡ · ١١/١١</footer>
+
+  <div class="intro-screen" id="introScreen" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+    <span class="petal" style="--x:7%;--size:13px;--duration:14s;--delay:-5s;--sway:50px">♡</span>
+    <span class="petal" style="--x:19%;--size:9px;--duration:19s;--delay:-12s;--sway:-55px">✧</span>
+    <span class="petal" style="--x:43%;--size:12px;--duration:17s;--delay:-8s;--sway:75px">♡</span>
+    <span class="petal" style="--x:71%;--size:11px;--duration:21s;--delay:-14s;--sway:-80px">✦</span>
+    <span class="petal" style="--x:88%;--size:14px;--duration:16s;--delay:-2s;--sway:42px">♡</span>
+    <div class="intro-content">
+      <div class="envelope" aria-hidden="true">♡</div>
+      <div class="eyebrow">١١ نوفمبر · ليكي إنتِ</div>
+      <h2 id="introTitle">رسالة صغيرة،<br>لأغلى قلب.</h2>
+      <p>خدي نفس… وافتحي حكاية معمولة بحب.</p>
+      <button class="open-button" id="openButton" type="button">افتحي رسالتي <span aria-hidden="true">♡</span></button>
+      <span class="audio-hint">الأغنية هتبدأ مع فتح الرسالة</span>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="لحظة ليكي">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="إغلاق">×</button>
+    <div class="lightbox-content">
+      <h2 class="lightbox-title" id="lightboxTitle"></h2>
+      <img id="lightboxImage" alt="" hidden>
+      <video id="lightboxVideo" controls playsinline preload="metadata" hidden></video>
+      <audio id="lightboxAudio" controls preload="metadata" hidden></audio>
+      <p class="lightbox-message" id="lightboxMessage" hidden></p>
+    </div>
+  </div>
+  <audio id="loveSong" preload="none">
+    <source src="assets/music/song-01.mp3" data-title="أغنيتنا الأولى" type="audio/mpeg">
+    <source src="assets/music/song-02.mp3" data-title="أغنيتنا الثانية" type="audio/mpeg">
+    <source src="assets/music/song-03.mp3" data-title="أغنيتنا الثالثة" type="audio/mpeg">
+  </audio>
+
+    <script src="js/app.js" defer></script>
+</body>
+</html>
